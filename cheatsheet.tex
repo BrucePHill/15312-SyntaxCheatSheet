@@ -1,0 +1,53 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{amsmath,proof,amsthm,amssymb,color}
+\usepackage{ifthen}
+\usepackage{hyperref}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\begin{document}
+ 
+\title{Syntax Cheat Sheet}
+ 
+\maketitle
+
+\renewcommand{\arraystretch}{2.0}
+
+\begin{tabular}{l | p{6cm} | p{6cm} }
+	\bf{Syntax} & \bf{English} & \bf{Example} \\
+	\hline & & \\
+
+	$\infer{c}{p_1 \; p_2 \; ... \; p_n}$ & $c$ can be concluded from premises $p_1$, $p_2$, ..., and $p_n$ & $\infer{plus(a,b) \; nat}{a\; nat \quad b \; nat}$\\
+
+	$a \mapsto b$ & $a$ evaluates to $b$ &  N/A\\
+
+	$[a/x]e$ & Substitute $a$ for $x$ in the expression $e$ & $[4/x]times(x; y) \mapsto times(4; y)$\\
+
+	$\Gamma$ & A set of rules & N/A \\
+
+	$\Gamma \vdash K$ & $K$ is logically derivable from $\Gamma$ & $\infer{\Gamma \vdash succ(x) \; nat}{\Gamma \vdash x \; nat}$ \\
+	$e : \tau$ & $e$ has type $\tau$ & $x : nat$ \\
+
+	$e \Downarrow v$ & $e$ has value $v$ & $x \Downarrow 4$ \\
+
+	$x.e$ & The variable $x$ in the expression $e$ & $x.times(x;y)$ \\
+
+	let($a_1$; $x.a_2$) & Let $x$ be $a_1$ in $a_2$ & $let(x; 4 . times(x; y)) \mapsto times(4; y)$ \\
+
+	ar($o$) = $(s_1, s_2, ..., s_n)$ & Operator $o$ has arity $(s_1, s_2, ..., s_n)$ (i.e. it has $n$ arguments that have sorts $s_1, s_2, ..., s_n$ respectively) & ar($let$) = (Exp, (Exp)Exp) \\
+
+
+\end{tabular}
+
+\end{document}
